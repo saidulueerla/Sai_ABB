@@ -1,0 +1,161 @@
+using System.Windows.Forms;
+using System.Drawing;
+using System;
+
+class GUI : Form
+{
+    // Instance Data Members of the GUI object
+    TextBox input1 = new TextBox();
+    TextBox input2 = new TextBox();
+    Button add = new Button();
+    Button multiply = new Button();
+    Button subtract = new Button();
+    Button divide = new Button();
+    Label output = new Label();
+
+    public GUI()
+    {
+        // make the controls children of the window
+        this.Controls.Add(input1);
+        this.Controls.Add(input2);
+        this.Controls.Add(add);
+        this.Controls.Add(multiply);
+        this.Controls.Add(subtract);
+        this.Controls.Add(divide);
+        this.Controls.Add(output);
+
+        // Placing the textbox Controls in the Window
+        input1.Location = new Point(10, 10);
+        input2.Location = new Point(150, 10);
+
+        // Placing the button Controls in the Window
+        add.Location = new Point(10, 50);
+        multiply.Location = new Point(100, 50);
+        subtract.Location = new Point(190, 50);
+        divide.Location = new Point(280, 50);
+
+        // Placing the Label Controls in the Window
+        output.Location = new Point(10, 90);
+
+        // Add text to the Controls
+        add.Text = "Add";
+        multiply.Text = "Multiply";
+        subtract.Text = "Subtract";
+        divide.Text = "Divide";
+
+        // Rigister Event Handlers with each Button click event
+        add.Click += AddClicked;
+        multiply.Click += MultiplyClicked;
+        subtract.Click += SubtractClicked;
+        divide.Click += DivideClicked;
+        
+        this.AutoSize = true;
+
+    }
+
+    // Event Handler - Function / Method
+    void AddClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Convert.ToDouble when fails to convert string to double it creates
+            // object of FormatException class throws it
+            double result = Convert.ToDouble(input1.Text) + Convert.ToDouble(input2.Text);
+            output.Text = result.ToString();
+        }
+        catch (FormatException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("One of the input value is blank or not a number");
+        }
+        catch (IndexOutOfRangeException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("You are going beyond the array bounds");
+        }
+        catch (Exception ex) // handling the exception that occurs during conversion // "Exception" used to catch all types of exceptions
+        {
+            MessageBox.Show("All other exception" + ex.Message);
+        }
+    }
+
+    void MultiplyClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Convert.ToDouble when fails to convert string to double it creates
+            // object of FormatException class throws it
+            double result = Convert.ToDouble(input1.Text) * Convert.ToDouble(input2.Text);
+            output.Text = result.ToString();
+        }
+        catch (FormatException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("One of the input value is blank or not a number");
+        }
+        catch (IndexOutOfRangeException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("You are going beyond the array bounds");
+        }
+        catch (Exception ex) // handling the exception that occurs during conversion // "Exception" used to catch all types of exceptions
+        {
+            MessageBox.Show("All other exception" + ex.Message);
+        }
+    }
+    void SubtractClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Convert.ToDouble when fails to convert string to double it creates
+            // object of FormatException class throws it
+            double result = Convert.ToDouble(input1.Text) - Convert.ToDouble(input2.Text);
+            output.Text = result.ToString();
+        }
+        catch (FormatException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("One of the input value is blank or not a number");
+        }
+        catch (IndexOutOfRangeException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("You are going beyond the array bounds");
+        }
+        catch (Exception ex) // handling the exception that occurs during conversion // "Exception" used to catch all types of exceptions
+        {
+            MessageBox.Show("All other exception" + ex.Message);
+        }
+    }
+    void DivideClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Convert.ToDouble when fails to convert string to double it creates
+            // object of FormatException class throws it
+            double result = Convert.ToDouble(input1.Text) / Convert.ToDouble(input2.Text);
+
+            //int[] a = new int[0];
+            //a[0] = 10;
+            output.Text = result.ToString();
+        }
+        catch (FormatException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("One of the input value is blank or not a number");
+        }
+        catch (IndexOutOfRangeException ex) // handling the exception that occurs during conversion
+        {
+            MessageBox.Show("You are going beyond the array bounds");
+        }
+        catch (Exception ex) // handling the exception that occurs during conversion // "Exception" used to catch all types of exceptions
+        {
+            MessageBox.Show("All other exception" + ex.Message);
+        }
+
+    }
+
+}
+
+class App11a
+{
+    static void Main()
+    {
+        GUI gui = new GUI();
+        gui.ShowDialog(); // runs the message loop
+
+    }
+}
