@@ -1,0 +1,20 @@
+Create app19 project with GUI having 7 text boxes and 1 button (insert)
+7 test boxes: stm, op1, op2,..
+
+create db by name abb1000 with table name questions
+write the data in to the table when insert button is clicked
+
+
+Create App20 GUI with 2 buttons Strat and Stop
+
+when click on start run a infinite loop in which increment the value by count 1 and initialize the the value before loop zero
+
+display the value in the label below the buttons
+
+loop should keep running untill stop button clicked
+
+Making the Main Thread infinite will make UI un responsive.
+
+
+Create app21 project as console application
+
